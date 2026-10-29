@@ -1,0 +1,54 @@
+# OANDA Exchange Rates Community Connector Spec
+# This file defines the specification for the connector including
+# connection parameters and allowlist options.
+
+# ============================================================================
+# Connection Parameters
+# These are provided when creating the Unity Catalog connection.
+# The OANDA Exchange Rates API authenticates with an API key sent as
+# "Authorization: Bearer <api_key>".
+# ============================================================================
+display_name: OANDA Exchange Rates
+connection:
+  parameters:
+    - name: api_key
+      type: string
+      required: true
+      secret: true
+      description: >
+        OANDA Exchange Rates API key, found in the OANDA FXDS Self-Serve
+        Portal (https://app.corporatefxservices.com/app). Sent as a Bearer
+        token in the Authorization header. Store as a Databricks secret.
+
+    - name: base_url
+      type: string
+      required: false
+      description: >
+        Optional API host, without a trailing slash. Defaults to
+        'https://api.corporatefxservices.com'. The legacy host
+        'https://web-services.oanda.com/rates/api' serves the same v1 API.
+        The connector appends '/v1/rates/{base}.json' to this value.
+
+# ============================================================================
+# External Options Allowlist
+# These table-specific options must be included in the externalOptionsAllowList
+# parameter of the UC connection to allow them to be passed through.
+# Use a comma-separated string of option names.
+#
+# Options read by the connector (table: rates):
+#   - base_currency           Base currency code (default USD).
+#   - quote_currencies        Comma-separated quote currencies (e.g. EUR,GBP,JPY).
+#                             Default: all available (~200 quotes per day, each
+#                             counted against quote-limited plans).
+#   - data_set                OANDA (default), CRYPTO, or a Central Bank data set
+#                             code (e.g. EUCB). Central Bank sets return 'spot' only.
+#   - fields                  Comma-separated: averages, midpoint, highs, lows,
+#                             all (default all).
+#   - decimal_places          1-15 (default 5).
+#   - start_date              First day to load on the initial run (YYYY-MM-DD).
+#   - initial_lookback_days   Used when start_date is not set (default 30).
+#   - max_records_per_batch   Soft cap on rows per microbatch; whole days only
+#                             (default 1000).
+#   - max_days_per_batch      Max days (API calls) per microbatch (default 31).
+# ============================================================================
+external_options_allowlist: "base_currency,quote_currencies,data_set,fields,decimal_places,start_date,initial_lookback_days,max_records_per_batch,max_days_per_batch"

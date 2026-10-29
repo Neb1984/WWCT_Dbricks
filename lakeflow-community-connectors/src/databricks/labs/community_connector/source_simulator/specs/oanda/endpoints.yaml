@@ -1,0 +1,27 @@
+# OANDA Exchange Rates API endpoints exercised by OandaLakeflowConnect.
+#
+# Host: https://api.corporatefxservices.com (default) — the simulator
+# matches on path only, so the legacy host prefix is not modelled.
+#
+# Connector flow:
+# * rates → GET /v1/rates/{base}.json?date=YYYY-MM-DD&data_set=...&
+#   decimal_places=N&fields=...&quote=CCY&quote=CCY...
+#   One call per UTC day, no pagination.
+#
+# Response shape (OpenAPI schema, verified against the official spec):
+#   {"base_currency": "USD",
+#    "meta": {"effective_params": {...}, "request_time": "...",
+#             "skipped_currencies": [...]},
+#    "quotes": {"EUR": {"date": "...", "bid": "0.9", "ask": "...", ...}, ...}}
+#
+# ``quotes`` is an object keyed by currency code (not an array), and the
+# returned value fields depend on ``fields`` / ``data_set``. The
+# declarative wrapper/pagination model cannot express that, so a custom
+# handler builds the response from the flat corpus rows (one row per quote
+# currency), stamping the requested base/date onto every quote.
+
+endpoints:
+  - path: /v1/rates/{base}.{ext}
+    method: GET
+    corpus: rates
+    handler: databricks.labs.community_connector.source_simulator.specs.oanda.handlers.rates:serve_rates

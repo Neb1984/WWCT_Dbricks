@@ -1,0 +1,8 @@
+{
+  "rates": {
+    "base_currency": "USD",
+    "quote_currencies": "EUR,GBP",
+    "initial_lookback_days": "3",
+    "max_days_per_batch": "3"
+  }
+}

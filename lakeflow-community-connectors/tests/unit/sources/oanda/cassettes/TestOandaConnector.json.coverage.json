@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "endpoints": [
+    {
+      "method": "GET",
+      "url": "https://api.corporatefxservices.com/v1/rates/USD.json",
+      "count": 6,
+      "param_shapes": [
+        [
+          "data_set",
+          "date",
+          "decimal_places",
+          "fields",
+          "quote"
+        ]
+      ]
+    }
+  ]
+}

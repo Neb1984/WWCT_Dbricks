@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "generated_at": "2026-10-29T13:33:28.676642Z",
+  "endpoints": [
+    {
+      "method": "GET",
+      "spec_path": "/v1/rates/{base}.{ext}",
+      "sample_url": "https://api.corporatefxservices.com/v1/rates/USD.json?date=2026-10-26&data_set=OANDA&decimal_places=5&fields=all&quote=EUR&quote=GBP",
+      "status": "validated",
+      "calls": 6,
+      "matched": 6,
+      "mismatched": 0,
+      "no_spec": 0,
+      "issues": []
+    }
+  ],
+  "summary": {
+    "endpoints_total": 1,
+    "endpoints_validated": 1,
+    "endpoints_mismatched": 0,
+    "endpoints_missing_spec": 0
+  }
+}

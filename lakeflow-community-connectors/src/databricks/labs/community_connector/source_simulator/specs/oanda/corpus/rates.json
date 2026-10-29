@@ -1,0 +1,8 @@
+[
+  {"quote_currency": "EUR", "bid": "0.89807", "ask": "0.89820", "midpoint": "0.89814", "high_bid": "0.89977", "high_ask": "0.89990", "low_bid": "0.89526", "low_ask": "0.89538", "spot": "0.89814"},
+  {"quote_currency": "GBP", "bid": "0.75169", "ask": "0.75181", "midpoint": "0.75175", "high_bid": "0.75338", "high_ask": "0.75348", "low_bid": "0.74965", "low_ask": "0.74977", "spot": "0.75175"},
+  {"quote_currency": "JPY", "bid": "151.42100", "ask": "151.44300", "midpoint": "151.43200", "high_bid": "152.10500", "high_ask": "152.12900", "low_bid": "150.88800", "low_ask": "150.91000", "spot": "151.43500"},
+  {"quote_currency": "CHF", "bid": "0.86540", "ask": "0.86570", "midpoint": "0.86555", "high_bid": "0.86910", "high_ask": "0.86940", "low_bid": "0.86220", "low_ask": "0.86250", "spot": "0.86560"},
+  {"quote_currency": "CAD", "bid": "1.37820", "ask": "1.37850", "midpoint": "1.37835", "high_bid": "1.38240", "high_ask": "1.38270", "low_bid": "1.37410", "low_ask": "1.37440", "spot": "1.37830"},
+  {"quote_currency": "USD", "bid": "1.08660", "ask": "1.08690", "midpoint": "1.08675", "high_bid": "1.09140", "high_ask": "1.09170", "low_bid": "1.08210", "low_ask": "1.08240", "spot": "1.08670"}
+]
